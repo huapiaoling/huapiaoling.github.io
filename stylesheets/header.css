@@ -9,12 +9,12 @@
     max-width: 85%;
     margin: 0 auto;
     border-top: 1px solid transparent;}
-#header .head a{min-width: 15%;
+#header .head .logo{min-width: 15%;
     margin: 20px 20px 0 0;}
 #first_hide{width:100%; height:100%; position:relative;}
 #first_hide ul{width:100%; height:100%;}
 #first_hide li{background:url(../images/bg3.jpg) no-repeat; width:100%; height:100%; position:absolute; top:0; left:0; background-size:100% 100%;}
 #first_hide .txt{width:600px; height:400px; position:absolute; top:50%; left:50%; margin:-200px 0 0 -100px; text-align:center;}
-#first_hide .txt p{line-height:30px; margin-top:18px;}
+#first_hide .txt p{line-height:30px; margin-top:18px; color:#68512f}
 #first_hide .txt h1{margin:50px auto;}
-#first_hide .txt a{}
+#first_hide .txt a{ color:#68512f}
