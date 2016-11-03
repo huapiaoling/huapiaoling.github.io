@@ -1,0 +1,7 @@
+/*section*/
+section{display:block; width:100%; padding:30px 10px;}
+#con .warp{text-align:center;}
+.warp .f1_box{width:100%;}
+.warp .f1_art{width:calc(100% / 3); box-shadow: 0 3px 5px #ccc;}
+.warp .fl_art a{display:block;}
+.f1_img{width:100%;}

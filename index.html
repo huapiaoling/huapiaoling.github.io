@@ -10,9 +10,23 @@
 <link rel="stylesheet" href="stylesheets/pic.css">
 <link rel="stylesheet" href="stylesheets/base.css">
 <link rel="stylesheet" href="stylesheets/header.css">
+<link rel="stylesheet" href="stylesheets/content.css">
 <title>huapiaoling</title>
 <style>
+
 </style>
+<script>
+	var isIE = !!window.ActiveXObject;
+    var isIE6 = isIE &&! window.XMLHttpRequest;
+    var isIE8 = isIE &&!! document.documentMode;
+    var isIE7 = isIE &&! isIE6 &&! isIE8;
+    if (isIE){
+      if (isIE6 || isIE7 || isIE8){
+        alert('您当前浏览器版本较低，若有浏览问题，请更换高级浏览器！');
+      }
+    }
+</script>
+<script src="javascripts/content.js"></script>
 </head>
 
 <body>
@@ -20,12 +34,12 @@
 	<header id="header" class="clearfix">
 		<div class="head">
 			<strong class="logo fl">
-				<a href="http://huapiaoling.github.io">HuaPiaoLing Homepage</a>
+				<a href="http://huapiaoling.github.io" class="a1">HuaPiaoLing Homepage</a>
 			</strong>
 		</div>
 	</header>
 	<!--首屏-->
-	<div id="first_hide">
+	<div id="first_hide" class="f-hide">
 		<ul class="banner">
 			<li></li>
 		</ul>
@@ -36,5 +50,23 @@
 			<a href="javascript:;">Welcome</a>
 		</div>
 	</div>
+	<!--section-->
+	<section id="con">
+		<div class="warp clearfix">
+			<div>
+				<h2>Content</h2>
+			</div>
+			<div class="clearfix f1_box">
+				<article class="fl f1_art">
+					<a href="web/color.html" target="true">
+						<img src="images/color.jpg" alt="" class="f1_img">
+					</a>
+					<div>
+						<h2>canvas彩虹框</h2>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
 </body>
 </html>
