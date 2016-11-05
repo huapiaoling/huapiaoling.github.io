@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	@-webkit-keyframes move{
+		0%{-webkit-transform:rotateZ(0deg);}
+		100%{-webkit-transform:rotateZ(360deg);}
+	}
+	@-ms-keyframes move{
+		0%{-ms-transform:rotateZ(0deg);}
+		100%{-ms-transform:rotateZ(360deg);}
+	}
+	@-webkit-keyframes twinkle{
+		0%{-webkit-box-shadow:0 0 0 #fff;}
+		50%{-webkit-box-shadow:0 0 18px #fff;}
+		100%{-webkit-box-shadow:0 0 0 #fff;}
+	}
+	@-webkit-keyframes tune{
+		0%{-webkit-box-shadow:0 0 0 #fff;}
+		50%{-webkit-box-shadow:0 0 12px #fff;}
+		100%{-webkit-box-shadow:0 0 0 #fff;}
+	}
+	*{margin:0; padding:0; list-style:none;}
+	body,html{width:100%; height:100%;}
+	a{text-decoration:none; color:#c9c0ba;}
+	body{background:-webkit-radial-gradient(center center,circle,rgba(144,133,125,0.9) 10%,rgba(127,104,85,1) 80%); background:-ms-radial-gradient(center center,circle,rgba(144,133,125,0.9) 10%,rgba(127,104,85,1) 80%);}
+	.clearfix:after{content:''; display:block; clear:both;}
+	a:hover{color:#dbcbd1;}
+	/*header*/
+	#header{border-top:1px solid #666; line-height:60px; width:1104px; margin:0 auto;}
+	#header h1{font-size:26px; float:left; margin-left:-80px;}
+	#header .a2{float:right; color:pink; -webkit-transform-origin:right top;}
+	#header .a2:hover{animation-play-state:paused;}
+	#header .a2 .sp1{width:300px; height:150px;position:absolute; top:30%; left:50%; margin-left:-150px; border:1px solid #000; border-radius:5px; color:#000; text-align:center; line-height:150px; background:#cfc4cd; -webkit-transform:scale(4); opacity:0; -webkit-transition:0.5s all ease; display:none;}
+	#header .a2 .sp1 span{width:30px; height:30px; position:absolute; right:0; top:0; border:1px solid #eee; text-align:center; line-height:30px;}
+	/*music*/
+	#music{width:1104px; margin:0 auto; color:orange;}
+	#music .left{width:710px; float:left;}
+	#music .right{float:right; background: -webkit-linear-gradient(left,#fff 50%,#d5d5d5 50%); margin-top:50px; border-radius:50%;  background: -ms-linear-gradient(left,#fff 50%,#d5d5d5 50%);}
+	#music .btn{padding:12px 0 20px 0;}
+	#music .btn li{float:left; width:118px; height:34px; border-radius:3px; border:2px solid #dfcdc0; margin-right:8px; text-align:center; line-height:34px; color:#D3A8F5;}
+	#music .btn label{cursor:pointer;}
+	#music .btn li input{display:none;}
+	#music .btn li:hover{border:2px solid #fff; color:#fff;}
+	#song{ border-top:1px solid #8b7c73;}
+	#song li{line-height:50px; padding-left:50px; border-bottom:1px solid #8b7c73; cursor:pointer;}
+	#song li:hover{color:#eee;}
+	#song li.on{background:url(play.gif) no-repeat 8px center;}
+	#cir{width:348px; height:348px; background:url(1.jpg) no-repeat 0 64px; border-radius:50%;}
+	.ok{animation:1s twinkle linear infinite;}
+	/*down*/
+	#down{width:1104px; margin:0 auto; margin-top:100px;}
+	#down .begin{width:168px; float:left;}
+	#down .begin li{float:left; cursor:pointer;}
+	#center{width:20px; height:24px; margin:0 42px 0 50px; position:relative;}
+	#center span{position:absolute; top:0; left:0;}
+	#c2:hover{-webkit-box-shadow:0px 0px 12px #eee;}
+	#c1:hover{border-left:16px solid #fff;}
+	#c1{border:16px solid transparent; border-left:16px solid #e8e6e3; margin-top:-3px;}
+	#c2{width:20px; height:24px; background:-webkit-linear-gradient(left,#e8e6e3 40%,#836e5c 40%,#836e5c 60%,#e8e6e3 60%); display:none; margin-left:-3px;  background:-ms-linear-gradient(left,#e8e6e3 40%,#8d8175 40%,#8d8175 60%,#e8e6e3 60%);}
+	#box{width:540px; height:5px; position:relative; background:#9e9389; float:left; margin-top:13px;}
+	#bar{height:5px; background:#eee; position:absolute; top:0; left:0;}
+	#go{width:12px; height:12px; background:#fff; position:absolute; right:-12px; top:-4px; border-radius:10px; animation:1.2s tune ease infinite;}
+	#l1{border:14px solid transparent; border-right:14px solid #eee; float:left; border-radius:5px;}
+	#l2{border:14px solid transparent; border-left:14px solid #eee; float:right; border-radius:5px;}
+	#l1:hover{border-right:14px solid #fff;}
+	#l2:hover{border-left:14px solid #fff;}
+	#voice{position:relative; float:left; width:200px; height:3px; margin:15px 0 0 100px; background:#9e9389;}
+	#voice #size1{width:10px; height:10px; background:#fff; position:absolute; top:-4px; left:100%; margin-left:-10px; border-radius:8px; animation:1.8s tune linear infinite;}
+	.add{float:left; margin-left:10px;}
+	.add input{width:20px;}
+	#fin{position:absolute; top:0; left:0; height:3px; background:#eee; width:100%;}
+	#img1{position:absolute; top:-9px; left:-35px; cursor:pointer;}
+	</style>
+	<script>
+	if(navigator.userAgent.indexOf('MSIE')!=-1){
+		alert('因兼容性问题会导致浏览不便，请您更换高级浏览器');
+	}
+	function getByClass(oP,sC){
+		if(oP.getElementsByClassName){
+			return oP.getElementsByClassName(sC);
+		}else{
+			var arr=[];
+			var aAll=oP.getElementsByTagName('*');
+
+			for(var i=0;i<aAll.length;i++){
+				var reg=new RegExp('\\b'+sC+'\\b','g');
+				if(reg.test(aAll[i].className)){
+					arr.push(aAll[i]);
+				}
+			}
+			return arr;
+		}
+	}
+	function getRand(m,n){
+		return Math.floor(Math.random()*(m-n)+n);
+	}
+	window.onload=function(){
+		var oHead=document.getElementById('header');
+		var oHa2=getByClass(oHead,'a2');
+		var oSp1=getByClass(oHead,'sp1');
+		var oClose=getByClass(oHead,'close');
+		var bFlag=true;
+		
+		oHa2[0].addEventListener('click',function(){
+			oSp1[0].style.display='block';
+			setTimeout(function(){
+				oSp1[0].style.WebkitTransform='scale(1)';
+				oSp1[0].style.opacity='1';
+			},10);
+			return false;
+		},false);
+		oClose[0].addEventListener('click',function(ev){
+			var oEvent=ev||event;
+			oSp1[0].style.WebkitTransform='scale(4)';
+			oSp1[0].style.opacity='0';
+			setTimeout(function(){
+				oSp1[0].style.display='none';
+			},800);
+			oEvent.cancelBubble=true;
+			return false;
+		},false);
+
+		var oSong=document.getElementById('song');
+		var oA=document.getElementById('a1');
+		var aLi=oSong.children;
+		var oInp=document.getElementById('inp');
+		var aTwinkle=oInp.children;
+		var aBtn=oInp.children;
+		var oRight=document.getElementById('r1');
+		var oC1=document.getElementById('c1');
+		var oC2=document.getElementById('c2');
+		var arr=['zero','one','two','three','four','five'];
+		var iNow=0;
+
+		function begin1(){
+				oC1.style.display='none';
+				oC2.style.display='block';
+				oRight.style.animationPlayState='';
+				oRight.style.animation='6s move linear infinite';
+		}
+		function begin2(){
+			oC2.style.display='none';
+			oC1.style.display='block';
+			oRight.style.animationPlayState='paused';
+		}
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].dataset.index=i;
+			aLi[i].ondblclick=function(){
+				bFlag=false;
+				iNow=this.dataset.index;
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className='';
+				}
+				aLi[this.dataset.index].className='on';
+				oA.src='mp3/'+arr[iNow]+'.mp3';
+				oA.play();
+				if(oA.paused==false){
+					begin1();
+				}
+			};
+		}
+		var oRa1=document.getElementById('ra1');
+		var oRa2=document.getElementById('ra2');
+		if(oRa1.checked){oA.playState=1;}
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].index=i;
+			aBtn[i].onclick=function(){
+				for(var i=0;i<aBtn.length;i++){
+					aTwinkle[i].className='';
+				}
+				oA.playState=this.index+1;
+				aTwinkle[this.index].className='ok';
+			};
+		}
+		function play(){
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].className='';
+			}
+			aLi[iNow].className='on';
+			oA.src='mp3/'+arr[iNow]+'.mp3';
+			oA.play();
+		}
+		oA.onended=function(){
+			switch(oA.playState){
+				case 1:
+					play();
+				break;
+				case 2:
+					iNow++;
+					play();
+				break;
+				case 3:
+					iNow=getRand(0,arr.length);
+					play();
+				break;
+				case 4:
+					iNow++;
+					if(iNow==arr.length){
+						iNow=0;
+					}
+					play();
+				break;
+			}
+		};
+		
+		var oCen=document.getElementById('center');
+		var oL1=document.getElementById('l1');
+		var oL2=document.getElementById('l2');
+		
+		oCen.onclick=function(){
+			if(bFlag){
+				begin1();
+				oA.play();
+			}else{
+				begin2();
+				oA.pause();
+			}
+			bFlag=!bFlag;
+		};
+		oL1.onclick=function(){
+			bFlag=false;
+			begin1();
+			iNow--;
+			if(iNow<0){
+				iNow=arr.length-1;
+			}
+			play();
+		};
+		oL2.onclick=function(){
+			bFlag=false;
+			begin1();
+			if(oRa2.checked){
+				iNow=getRand(0,arr.length);
+				play();
+				return;
+			}
+			iNow++;
+			if(iNow>arr.length-1){
+				iNow=0;
+			}
+			play();
+		};
+
+		var oBar=document.getElementById('bar');
+		oA.ontimeupdate=function(){
+			var scale=oA.currentTime/oA.duration;
+			oBar.style.width=scale*100+'%';
+		};
+		var oSize=document.getElementById('size1');
+		var oB1=document.getElementById('b1');
+		var oB2=document.getElementById('b2');
+		var oFin=document.getElementById('fin');
+
+		oB1.onclick=function(){
+			if(oA.volume>0.9){
+				oA.volume=1;
+				oSize.style.left=100+'%';
+				oFin.style.width=oSize.offsetLeft+'px';
+				return;
+			}
+			var scale=oA.volume/1;
+			oSize.style.left=scale*100+'%';
+			oFin.style.width=oSize.offsetLeft+'px';
+			oA.volume+=0.1;
+		};
+		oB2.onclick=function(){
+			if(oA.volume<0.1){
+				oA.volume=0;
+				oSize.style.left=0+'%';
+				oFin.style.width=0+'px';
+				return;
+			}
+			var scale=oA.volume/1;
+			oSize.style.left=scale*90+'%';
+			oFin.style.width=oSize.offsetLeft+'px';
+			oA.volume-=0.1;
+		};
+	};
+	</script>
+</head>
+<body>
+	<!--header-->
+	<header id="header" class="clearfix">
+		<h1><a href="javascript:;">我的音乐盒</a></h1>
+		<a href="javascript:;" class="a2">登录
+			<span class="sp1">欢迎收听<span href="javascript" class="close">×</span></span>
+		</a>
+	</header>
+	<!--music-->
+	<div id="music" class="clearfix">
+		<audio src="mp3/zero.mp3" id="a1"></audio>
+		<div class="left">
+			<ul class="btn clearfix" id="inp">
+				<li class="ok"><label>单曲循环<input type="radio" name="btn" id="ra1" checked="true"></label></li>
+				<li><label>顺序播放<input type="radio" name="btn" id=""></label></li>
+				<li><label>随机播放<input type="radio" name="btn" id="ra2"></label></li>
+				<li><label>列表循环<input type="radio" name="btn" id=""></label></li>
+			</ul>
+			<ul id="song">
+				<li class="on">清明上河图</li>
+				<li>时间都去哪了</li>
+				<li>小苹果</li>
+				<li>夜的钢琴曲</li>
+				<li>雨中的悲伤</li>
+				<li>默</li>
+			</ul>
+		</div>
+		<div class="right" id="r1">
+			<div id="cir"></div>
+		</div>
+	</div>
+	<!--begin-->
+	<div id="down" class="clearfix">
+		<ul class="begin clearfix">
+			<li id="l1"></li>
+			<li id="center">
+				<span id="c1"></span>
+				<span id="c2"></span>
+			</li>
+			<li id="l2"></li>
+		</ul>
+		<div id="box">
+			<span id="bar">
+				<span id="go"></span>
+			</span>
+		</div>
+		<div id="voice">
+			<img src="2.png" alt="" id="img1">
+			<span id="fin"></span>
+			<span id="size1"></span>
+		</div>
+		<div class="add">
+			<input type="button" value=" - " id="b2">
+			<input type="button" value=" + " id="b1">
+		</div>
+	</div>
+</body>
+</html>

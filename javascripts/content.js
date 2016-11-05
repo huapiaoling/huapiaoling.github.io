@@ -1,9 +1,25 @@
 //javascript document
+function getPos(obj){
+	var l=0;
+	var t=0;
+
+	while(obj){
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+
+		obj=obj.offsetParent;
+	}
+	return {"left":l,"top":t};
+}
 addEvent(window,'load',function(){
+	var oC=document.documentElement.clientHeight;
 	(function(){
 		var oHead=document.getElementById('header');
 		var oA1=document.querySelector('#header .a1');
 		var oT=oHead.offsetTop;
+
+		var oF1=document.querySelector('.f1_box');
+		var oH=getPos(oF1).top;
 
 		window.onscroll=function(){
 			/*var oS=document.documentElement.scrollTop||document.body.scrollTop;*/
@@ -16,6 +32,12 @@ addEvent(window,'load',function(){
 				oHead.style.position='absolute';
 				oHead.className='';
 				oA1.style.color='';
+			}
+
+			if(oS+oC>(oH+180)){
+				oF1.style.marginLeft='0';
+				oF1.classList.add('animated');
+				oF1.classList.add('bounceInLeft');
 			}
 		};
 	})();
