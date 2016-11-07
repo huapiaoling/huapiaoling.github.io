@@ -19,7 +19,9 @@ addEvent(window,'load',function(){
 		var oT=oHead.offsetTop;
 
 		var oF1=document.querySelector('.f1_box');
-		var oH=getPos(oF1).top;
+		var oF1h=getPos(oF1).top;
+		var oS2=document.querySelector('.s2_box');
+		var oS2h=getPos(oS2).top;
 
 		window.onscroll=function(){
 			/*var oS=document.documentElement.scrollTop||document.body.scrollTop;*/
@@ -34,10 +36,15 @@ addEvent(window,'load',function(){
 				oA1.style.color='';
 			}
 
-			if(oS+oC>(oH+180)){
+			if(oS+oC>(oF1h+180)){
 				oF1.style.marginLeft='0';
 				oF1.classList.add('animated');
 				oF1.classList.add('bounceInLeft');
+			}
+			if(oS+oC>(oS2h+180)){
+				oS2.style.marginLeft='0';
+				oS2.classList.add('animated');
+				oS2.classList.add('bounceInRight');
 			}
 		};
 	})();

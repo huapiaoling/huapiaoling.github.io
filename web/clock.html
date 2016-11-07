@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#box{width:300px; height:300px; background:#999; border-radius:50%; margin:30px auto; border:3px solid green; position:relative; box-shadow:0px 0px 18px green;}
+	#hours{width:14px; height:80px; background:#000; border-radius:50% 50% 0 0; position:absolute; top:50%; left:50%; margin-left:-7px; margin-top:-80px;}
+	#minutes{width:12px; height:120px; background:#000; border-radius:50% 50% 0 0; position:absolute; top:50%; left:50%; margin-left:-6px; margin-top:-120px;}
+	#seconds{width:6px; height:130px; background:#f00; border-radius:50% 50% 0 0; position:absolute; top:50%; left:50%; margin-left:-3px; margin-top:-130px;}
+	#cen{width:18px; height:18px; background:-webkit-radial-gradient(center center,circle,rgba(255,255,255,1) 10%,rgba(0,0,0,1) 60%);  background:-ms-radial-gradient(center center,circle,rgba(255,255,255,1) 10%,rgba(0,0,0,1) 60%); position:absolute; left:50%; top:50%; margin-left:-9px; margin-top:-9px; border-radius:50%;}
+	#box div{transform-origin:center bottom;}
+	#num{width:280px; height:280px; position:absolute; top:-5px; left:4px; font-size:26px;text-shadow: 1px 0 4px #fe01f7,0 1px 4px #fe01f7,0 -1px 4px #fe01f7,-1px 0 4px #fe01f7;color: #ffffff;}
+	</style>
+	<script>
+	var arr=['MSIE 6','MSIE 7','MSIE 8','MSIE 9'];
+	for(var i=0;i<arr.length;i++){
+		if(navigator.userAgent.indexOf(arr[i])!=-1){
+			alert('您浏览器版本较低，请更换高级浏览器');
+		}
+	}
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var aDiv=oBox.children;
+
+		function clock(){
+			var oDate=new Date();
+			var h=oDate.getHours();
+			var m=oDate.getMinutes();
+			var s=oDate.getSeconds();
+
+			aDiv[0].style.transform='rotate('+(h%12*30+m/60*30)+'deg)';
+			aDiv[1].style.transform='rotate('+m*6+'deg)';
+			aDiv[2].style.transform='rotate('+s*6+'deg)';
+		}
+		clock();
+		setInterval(clock,1000);
+		var aSpan=document.getElementsByTagName('span');
+		var W=140;
+		var N=aSpan.length;
+
+		function d2a(n){
+			return n*Math.PI/180;
+		}
+		for(var i=0;i<aSpan.length;i++){
+			aSpan[i].style.position='absolute';
+			aSpan[i].style.left=W+W*Math.sin(d2a(360*i/N))+'px';
+			aSpan[i].style.top=W-W*Math.cos(d2a(360*i/N))+'px';
+		}
+	};
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="hours"></div>
+		<div id="minutes"></div>
+		<div id="seconds"></div>
+		<div id="cen"></div>
+		<div id="num">
+			<span>12</span>
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span>10</span>
+			<span>11</span>
+		</div>
+	</div>
+</body>
+</html>
