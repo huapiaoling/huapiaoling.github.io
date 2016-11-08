@@ -15,7 +15,6 @@ addEvent(window,'load',function(){
 	var oC=document.documentElement.clientHeight;
 	(function(){
 		var oHead=document.getElementById('header');
-		var oA1=document.querySelector('#header .a1');
 		var oT=oHead.offsetTop;
 
 		var oF1=document.querySelector('.f1_box');
@@ -29,11 +28,9 @@ addEvent(window,'load',function(){
 			if(oS>oT){
 				oHead.style.position='fixed';
 				oHead.className='bg';
-				oA1.style.color='#fff';
 			}else{
 				oHead.style.position='absolute';
 				oHead.className='';
-				oA1.style.color='';
 			}
 
 			if(oS+oC>(oF1h+180)){
