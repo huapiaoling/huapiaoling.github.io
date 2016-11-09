@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../javascripts/jsonp.js"></script>
+	<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn1');
+		var oTxt=document.getElementById('txt1');
+		var oDiv=document.getElementById('div1');
+		var reg=/^1[3|5|8][0-9]\d{8}$/g;
+
+		oBtn.onclick=function(){
+			if(!reg.test(oTxt.value)){
+				alert('您输入号码有误');
+				return;
+			}
+			jsonp({
+				url:'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm',
+				data:{
+					"tel":oTxt.value,
+				},
+				cbName:"callback",
+				success:function(json){
+					var arr=[];
+					for(name in json){
+						arr.push(name+':'+json[name]);
+					};
+					oDiv.innerHTML=arr[arr.length-1];
+				}
+			});
+		};
+	};
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="txt1">
+	<input type="button" value="查询" id="btn1">
+	<div id="div1"></div>
+</body>
+</html>
