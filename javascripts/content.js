@@ -11,6 +11,7 @@ function getPos(obj){
 	}
 	return {"left":l,"top":t};
 }
+localStorage[Math.random()]=1;
 addEvent(window,'load',function(){
 	var oC=document.documentElement.clientHeight;
 	(function(){
