@@ -1,0 +1,20 @@
+body{background:#1f2122; height:100%;}
+.tips_wrap {
+    width: 1000px;
+    margin: 15px auto 0;
+    border-radius: 5px;
+    background: #FFFFFF;
+    padding: 30px;
+    color: #222222;
+}
+.tips_bigname {
+    padding-bottom: 5px;
+    color: #339900;
+    border-bottom: 1px solid #222;
+    margin-bottom: 15px;
+}
+.tips_wrap p {
+    line-height: 25px;
+    word-break: break-word;
+    font-size: 14px;
+}

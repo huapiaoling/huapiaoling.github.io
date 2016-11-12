@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../stylesheets/tips.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="tips_wrap">
+		<h2 class="tips_bigname">CSS: body{font-size: 62.5%;}为什么？</h2>
+		<div>
+			<p class="t_indent_16">在网页设计中我们经常看见body{font-size: 62.5%;}这样的设置，为什么偏偏是62.5%呢？这主要是为了方便em与px相互转换，em的初始值为1em=16px，显然这样的话，如1.2em则=19.2px，可是我们在设置的时候很少看见19.2px这样表示的大小，也就是在用px表示大小时数值是不带小数位的。当设置了body{font-size: 62.5%;}时，1em则=16px*62.5%=10px,1.2em则=12px，这是不是就简单多了，准确多了呢</p>
+		</div>
+	</div>
+</body>
+</html>

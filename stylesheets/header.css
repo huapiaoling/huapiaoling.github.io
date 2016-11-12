@@ -4,6 +4,7 @@
     z-index: 99;
     box-sizing: border-box;
     width: 100%;
+    height:70px !important;
     transition: 1s;
     padding-bottom:20px;
 }
@@ -14,7 +15,19 @@
 #header .head .logo{min-width: 15%;
     margin: 20px 20px 0 0;}
 #header .head .logo a{color:#fff;}
-.bg{background:rgba(221,160,221,0.7);}
+#header .head nav{float:right; margin-top: 10px; font-size:20px;}
+#header .head nav .ul1{height:50px;}
+#header .head nav .note{color:#e2e2e2;}
+#header .head nav .li1{line-height:40px; padding:10px; width:50px; height:50px; text-align:center; position:relative;}
+#header .head nav .li1:hover .sub_menu{transform:scale(1);}
+#header .head nav .note:hover{color:#fff;}
+#header .head nav .sub_menu{transform-origin:top; transform:scale(0); color:#e2e2e2; padding:15px; transition:0.8s all ease;border-radius:5px; position:absolute; top:84%; left:50%; width:200px; margin-left:-115px;}
+#header .head nav .sub_menu .a1{color:#e2e2e2; transition:0.5s all ease;}
+#header .head nav .sub_menu .a1:hover{color:#fff; margin-left:5px;}
+#header .head nav .sub_menu li{line-height:30px;}
+.bg{background:rgba(2,132,137,0.6);}
+.bg2{background:rgba(0,0,0,0.6);}
+.old_bg{background: rgba(210, 210, 210, 0.6);}
 #first_hide{width:100%; height:100%; position:relative;}
 #first_hide ul{width:100%; height:100%;}
 #first_hide li{background:url(../images/bg9.jpg) no-repeat; width:100%; height:100%; position:absolute; top:0; left:0; background-size:100% 100%;}

@@ -21,6 +21,7 @@ addEvent(window,'load',function(){
 		var oF1h=getPos(oF1).top;
 		var oS2=document.querySelector('.s2_box');
 		var oS2h=getPos(oS2).top;
+		var oSub_menu=document.querySelector('.sub_menu');
 
 		window.onscroll=function(){
 			/*var oS=document.documentElement.scrollTop||document.body.scrollTop;*/
@@ -28,6 +29,7 @@ addEvent(window,'load',function(){
 			if(oS>oT){
 				oHead.style.position='fixed';
 				oHead.className='bg';
+				oSub_menu.classList.add('old_bg');
 			}else{
 				oHead.style.position='absolute';
 				oHead.className='';
@@ -42,6 +44,12 @@ addEvent(window,'load',function(){
 				oS2.style.marginLeft='0';
 				oS2.classList.add('animated');
 				oS2.classList.add('bounceInRight');
+			}
+			if(oS>=document.documentElement.clientHeight-100){
+				oHead.classList.remove('bg');
+				oSub_menu.classList.remove('old_bg');
+				oHead.className='bg2';
+				oSub_menu.classList.add('bg2');
 			}
 		};
 	})();
