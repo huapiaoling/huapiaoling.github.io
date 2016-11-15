@@ -16,6 +16,7 @@
 <style>
 
 </style>
+
 <script>
 	var isIE = !!window.ActiveXObject;
     var isIE6 = isIE &&! window.XMLHttpRequest;
@@ -23,11 +24,12 @@
     var isIE7 = isIE &&! isIE6 &&! isIE8;
     if (isIE){
       if (isIE6 || isIE7 || isIE8){
-        alert('您当前浏览器版本较低，若有浏览问题，请更换高级浏览器！');
+        alert('您当前浏览器版本较低，若有浏览问题，请更换高级浏览器!');
       }
     }
 </script>
 <script src="javascripts/content.js"></script>
+<script src="javascripts/jquery-1.7.2.min.js"></script>
 </head>
 
 <body>
@@ -113,7 +115,7 @@
 				</article>
 				<article class="fl f1_art">
 					<a href="web/find.html" target="_blank" class="a1">
-						<img src="images/number.jpg" alt="" class="f1_img">
+						<img src="images/number.png" alt="" class="f1_img">
 					</a>
 					<div>
 						<h2>手机号归属地查询</h2>
@@ -122,5 +124,7 @@
 			</div>
 		</div>
 	</section>
+	<!--返回顶部-->
+	<div id="top1"></div>
 </body>
 </html>

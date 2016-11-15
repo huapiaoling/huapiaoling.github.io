@@ -22,6 +22,8 @@ addEvent(window,'load',function(){
 		var oS2=document.querySelector('.s2_box');
 		var oS2h=getPos(oS2).top;
 		var oSub_menu=document.querySelector('.sub_menu');
+		var oTop=document.getElementById('top1');
+		//var oT2=oTop.offsetTop;
 
 		window.onscroll=function(){
 			/*var oS=document.documentElement.scrollTop||document.body.scrollTop;*/
@@ -33,8 +35,8 @@ addEvent(window,'load',function(){
 			}else{
 				oHead.style.position='absolute';
 				oHead.className='';
+				oTop.style.right='-50px';
 			}
-
 			if(oS+oC>(oF1h+180)){
 				oF1.style.marginLeft='0';
 				oF1.classList.add('animated');
@@ -50,7 +52,14 @@ addEvent(window,'load',function(){
 				oSub_menu.classList.remove('old_bg');
 				oHead.className='bg2';
 				oSub_menu.classList.add('bg2');
+				oTop.style.right='30px';
 			}
+			//兼容固定定位
+			/*oTop.style.top=oS+oT2+'px';*/
+			//返回顶部
+			$('#top1').click(function(){
+				$('body,html').stop().animate({"scrollTop":0},800);
+			});
 		};
 	})();
 	window.onresize=function(){
