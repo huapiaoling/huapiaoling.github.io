@@ -27,17 +27,17 @@
 		var x=45;
 		var y=-45;
 
-		oBox.onmousedown=function(ev){
+		oBox.onmousedown=oBox.ontouchstart=function(ev){
 			var disX=ev.clientX-y;
 			var disY=ev.clientY-x;
 
-			document.onmousemove=function(ev){
+			document.onmousemove=document.ontouchmove=function(ev){
 				y=ev.clientX-disX;
 				x=disY-ev.clientY;
 				
 				oBox.style.transform='perspective(800px) rotateY('+y+'deg) rotateX('+x+'deg)';
 			};
-			document.onmouseup=function(){
+			document.onmouseup=document.ontouchend=function(){
 				document.onmousemove=null;
 				document.onmouseup=null;
 			};
