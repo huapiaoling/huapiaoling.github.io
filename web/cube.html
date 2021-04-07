@@ -30,7 +30,7 @@
 		oBox.onmousedown=oBox.ontouchstart=function(ev){
 			var disX=ev.clientX-y;
 			var disY=ev.clientY-x;
-
+			console.log(disX);
 			document.onmousemove=document.ontouchmove=function(ev){
 				y=ev.clientX-disX;
 				x=disY-ev.clientY;
@@ -43,7 +43,7 @@
 			};
 			return false;
 		};
-		oBox.ontouchstart=function(ev){alert(1);}
+		
 	};
 	</script>
 </head>
