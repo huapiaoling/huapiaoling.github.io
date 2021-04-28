@@ -67,3 +67,5 @@ section{display:block; width:100%; padding:30px 0px; background:#f5f5f5;}
 .warp .s2_box{width:100%; margin-left:-200%;}
 #top1{width:50px; height:60px; background:url(../images/top.png) no-repeat; background-size:100% 100%; position:fixed; right:-50px; bottom:100px; transition:0.5s right ease; cursor:pointer;}
 #top1:hover{animation:1s move ease infinite;}
+#my_video{position:absolute;right:1%;top:20%;}
+#my_video video{width:500px;}
