@@ -3,6 +3,7 @@
        .warp .f1_box .f1_art,.warp .s2_box .f1_art{
             width:calc(100% / 2 - 30px);
         }
+	#my_video{display:none;}
     }
 @media (max-width: 720px) {
        .warp .f1_box .f1_art,.warp .s2_box .f1_art{
